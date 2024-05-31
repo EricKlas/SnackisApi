@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using SnackisApi.Models;
 
 namespace SnackisApi.Data
@@ -15,4 +16,5 @@ namespace SnackisApi.Data
         public DbSet<MainCategory> MainCategory { get; set; }
         public DbSet<SubCategory> SubCategory { get; set; }
     }
+
 }

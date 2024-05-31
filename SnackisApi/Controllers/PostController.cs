@@ -17,9 +17,9 @@ namespace SnackisApi.Controllers
             _context = context;
         }
         [HttpGet]
-        public async Task<ActionResult<List<Post>>> GeAllPosts()
+        public async Task<ActionResult<List<Post>>> GetAllPosts()
         {
-            var post = await _context.Post.ToListAsync();
+            var post = await _context.Post.Include(p => p.Comments).ToListAsync();
             return Ok(post);
         }
     }

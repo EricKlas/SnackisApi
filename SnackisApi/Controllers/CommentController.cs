@@ -19,8 +19,9 @@ namespace SnackisApi.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<List<Comment>>> GeAllComments()
+        public async Task<ActionResult<List<Comment>>> GetAllComments()
         {
+           
             var comments = await _context.Comment.ToListAsync();
        
             return Ok(comments);

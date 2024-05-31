@@ -17,7 +17,7 @@ namespace SnackisApi.Controllers
             _context = context;
         }
         [HttpGet]
-        public async Task<ActionResult<List<SubCategory>>> GeAllSubCategories()
+        public async Task<ActionResult<List<SubCategory>>> GetAllSubCategories()
         {
             var subCategory = await _context.SubCategory.ToListAsync();
             return Ok(subCategory);
