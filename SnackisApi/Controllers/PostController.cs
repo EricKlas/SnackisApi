@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Hosting;
@@ -17,6 +18,7 @@ namespace SnackisApi.Controllers
         {
             _context = context;
         }
+
         [HttpGet]
         public async Task<ActionResult<List<Post>>> GetAllPosts()
         {
@@ -43,6 +45,15 @@ namespace SnackisApi.Controllers
             var randomPost = post[randomIndex];
 
             return Ok(randomPost);
+        }
+        [HttpGet("count")]
+        public async Task<ActionResult<List<Post>>> GetCountAllPost()
+        {
+            var post = await _context.Post.Include(p => p.Comments).ToListAsync();
+
+            var postCount = post.Count;
+
+            return Ok(postCount);
         }
     }
 }

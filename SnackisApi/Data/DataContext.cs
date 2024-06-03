@@ -10,7 +10,7 @@ namespace SnackisApi.Data
         {
             
         }
-
+        public DbSet<AspNetUsers> AspNetUsers { get; set; }
         public DbSet<Comment> Comment { get; set; }
         public DbSet<Post> Post { get; set; }
         public DbSet<MainCategory> MainCategory { get; set; }

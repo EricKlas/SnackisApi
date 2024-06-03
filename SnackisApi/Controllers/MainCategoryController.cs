@@ -17,11 +17,20 @@ namespace SnackisApi.Controllers
             _context = context;
         }
         [HttpGet]
-        public async Task<ActionResult<List<MainCategory>>> GeyAllMainCategories()
+        public async Task<ActionResult<List<MainCategory>>> GetAllMainCategories()
         {
             var mainCategory = await _context.MainCategory.ToListAsync();
 
             return Ok(mainCategory);
+        }
+        [HttpGet("count")]
+        public async Task<ActionResult<List<MainCategory>>> GetCountMainCategories()
+        {
+            var mainCategory = await _context.MainCategory.ToListAsync();
+
+            var mainCategoryCount = mainCategory.Count();
+
+            return Ok(mainCategoryCount);
         }
     }
 }

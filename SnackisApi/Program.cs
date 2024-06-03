@@ -1,6 +1,7 @@
 
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using SnackisApi.DAL;
 using SnackisApi.Data;
 using SnackisApi.Models;
 
@@ -23,6 +24,8 @@ namespace SnackisApi
             {
                 options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
             });
+
+            builder.Services.AddScoped<IDatabaseInfoService, DatabaseInfoService>();
 
             var app = builder.Build();
 

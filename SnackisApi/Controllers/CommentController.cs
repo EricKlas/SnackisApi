@@ -23,8 +23,21 @@ namespace SnackisApi.Controllers
         {
            
             var comments = await _context.Comment.ToListAsync();
+
        
             return Ok(comments);
        }
+
+        [HttpGet("count")]
+        public async Task<ActionResult<List<Comment>>> GetCountComments()
+        {
+
+            var comments = await _context.Comment.ToListAsync();
+
+
+            var commentsCount = comments.Count();
+
+            return Ok(commentsCount);
+        }
     }
 }

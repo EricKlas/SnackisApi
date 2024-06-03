@@ -22,5 +22,12 @@ namespace SnackisApi.Controllers
             var subCategory = await _context.SubCategory.ToListAsync();
             return Ok(subCategory);
         }
+
+        [HttpGet("count")]
+        public async Task<ActionResult<List<SubCategory>>> GetCountAllSubCategories()
+        {
+            var subCategory = await _context.SubCategory.ToListAsync();
+            return Ok(subCategory);
+        }
     }
 }
